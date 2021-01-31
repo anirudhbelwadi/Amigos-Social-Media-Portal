@@ -14,9 +14,20 @@ app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 @app.route('/')
 def home():
     if "uname" in session:
-        return render_template('index.html')
+        uname=session["uname"]
+        return render_template('index.html',uname=uname)
     else:
         return redirect(url_for('login'))
+
+#Feed route
+@app.route('/feed')
+def feed():
+    if "uname" in session:
+        uname=session["uname"]
+        return render_template('feed.html',uname=uname)
+    else:
+        return redirect(url_for('login'))
+        
 #login route
 @app.route('/login')
 def login():
@@ -28,32 +39,41 @@ def login():
 #register route
 @app.route('/register')
 def register():
-    return render_template('register.html')
+    if "uname" in session:
+        return redirect(url_for('home'))
+    else:
+        return render_template('register.html')
 
 #registration confirm
-@app.route('/confirmregister', methods=['POST'])
+@app.route('/confirmregister', methods=['POST','GET'])
 def confirmregister():
-    #request data from form
-    username = request.form['username']
-    email = request.form['email']
-    password = request.form['password']
-    firstname = request.form['firstname']
-    lastname = request.form['lastname']
-    mobile = request.form['mobile']
-    #Make a connection
-    myconnection = sqlite3.connect('assets/static/db/user.db')
-    #Make a cursor which will perform certain actions
-    mycursor = myconnection.cursor()
-    #Execute Given action
-    mycursor.execute("INSERT INTO users VALUES (:userName,:emailID,:password,:firstName,:lastName,:mobileNo)",
-    {'userName':username,'emailID':email,'password':password,'firstName':firstname,'lastName':lastname,'mobileNo':mobile})
-    #Take ackkonwledgement
-    myconnection.commit()
-    #Close Connection
-    myconnection.close()
-    return "1"
+    if(request.method == 'POST'):
+        #request data from form
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        mobile = request.form['mobile']
+        #Make a connection
+        myconnection = sqlite3.connect('assets/static/db/user.db')
+        #Make a cursor which will perform certain actions
+        mycursor = myconnection.cursor()
+        #Execute Given action
+        mycursor.execute("INSERT INTO users VALUES (:userName,:emailID,:password,:firstName,:lastName,:mobileNo)",
+        {'userName':username,'emailID':email,'password':password,'firstName':firstname,'lastName':lastname,'mobileNo':mobile})
+        #Take ackkonwledgement
+        myconnection.commit()
+        #Close Connection
+        myconnection.close()
+        return "1"
+    else:
+        if "uname" in session:
+            return redirect(url_for('home'))
+        else:
+            return redirect(url_for('login'))
 
-@app.route('/loginconfirm', methods=['POST'])
+@app.route('/loginconfirm', methods=['POST','GET'])
 def loginconfirm():
     username=request.form['username']
     password=request.form['password']
@@ -74,7 +94,7 @@ def loginconfirm():
         return redirect(url_for('home'))
     return redirect(url_for('login'))
 
-@app.route('/upload', methods=['POST'])
+@app.route('/upload', methods=['POST','GET'])
 def upload():
     if request.files['fileUpload']:
         f = request.files['fileUpload']

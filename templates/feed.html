@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amigos - Home Page</title>
     <style>
-    /* Fixes dropdown menus     placed on the right side */
+    /* Fixes dropdown menus placed on the right side */
     .ml-auto .dropdown-menu {
       left: auto !important;
       right: 0px;
@@ -46,6 +46,17 @@
             </ul>
         </div>
     </nav>
+    <br><br>
+    <h1>FEED</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <label for="caption"></label>
+        <input type="text" name="caption" id="caption">
+        <br><br>
+        <label for="fileUpload"></label>
+        <input type="file" name="fileUpload" id="fileUpload">
+        <br><br>
+        <button type="submit">Upload</button>
+    </form>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
