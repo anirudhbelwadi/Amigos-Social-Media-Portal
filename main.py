@@ -75,38 +75,52 @@ def confirmregister():
 
 @app.route('/loginconfirm', methods=['POST','GET'])
 def loginconfirm():
-    username=request.form['username']
-    password=request.form['password']
-    myconnection = sqlite3.connect('assets/static/db/user.db')
-    #Make a cursor which will perform certain actions
-    mycursor = myconnection.cursor()
-    #Execute Given action
-    a=mycursor.execute("SELECT password FROM users WHERE userName=:username", 
-            {'username':username})
-    for b in a:
-        c=b
-    if(password==c[0]):
-        print(password)
-        session.permanent=True
-        session['uname'] = username
-        myconnection.commit()
-        myconnection.close()
-        return redirect(url_for('home'))
-    return redirect(url_for('login'))
+    if(request.method == 'POST'):
+        username=request.form['username']
+        password=request.form['password']
+        myconnection = sqlite3.connect('assets/static/db/user.db')
+        #Make a cursor which will perform certain actions
+        mycursor = myconnection.cursor()
+        #Execute Given action
+        a=mycursor.execute("SELECT password FROM users WHERE userName=:username", 
+        {'username':username})
+        for b in a:
+            c=b
+        if(password==c[0]):
+            print(password)
+            session.permanent=True
+            session['uname'] = username
+            myconnection.commit()
+            myconnection.close()
+            return redirect(url_for('home'))
+        return redirect(url_for('login'))
+    else:
+        if "uname" in session:
+            return redirect(url_for('home'))
+        else:
+            return redirect(url_for('login'))
 
 @app.route('/upload', methods=['POST','GET'])
 def upload():
-    if request.files['fileUpload']:
-        f = request.files['fileUpload']
-        f_name='assets/feed/uploads/'+f.filename
-        uploadedIMG = os.path.join(f_name)
-        f.save(uploadedIMG)
+    if(request.method == 'POST'):
+        if request.files['fileUpload']:
+            f = request.files['fileUpload']
+            f_name='assets/feed/uploads/'+f.filename
+            uploadedIMG = os.path.join(f_name)
+            f.save(uploadedIMG)
+            return redirect(url_for('home'))
         return redirect(url_for('home'))
+    else:
+        if "uname" in session:
+            return redirect(url_for('home'))
+        else:
+            return redirect(url_for('login'))
 
 @app.route('/logout')
 def logout():
-    session.pop("uname",None)
-    return redirect(url_for('login'))
+    if "uname" in session:
+        session.pop("uname",None)
+    return redirect(url_for('login'))    
 
 if __name__ == "__main__":
     app.run(debug=True)
