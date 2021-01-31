@@ -10,7 +10,7 @@ app.secret_key='amigos'
 ALLOWED_EXTENSIONS = ['png', 'jpg', 'jpeg']
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 
-#root route
+#Home Page
 @app.route('/')
 def home():
     if "uname" in session:
@@ -19,7 +19,7 @@ def home():
     else:
         return redirect(url_for('login'))
 
-#Feed route
+#Feed
 @app.route('/feed')
 def feed():
     if "uname" in session:
@@ -28,7 +28,7 @@ def feed():
     else:
         return redirect(url_for('login'))
         
-#login route
+#login
 @app.route('/login')
 def login():
     if "uname" in session:
@@ -36,7 +36,7 @@ def login():
     else:
         return render_template('login.html')
 
-#register route
+#Reisteration
 @app.route('/register')
 def register():
     if "uname" in session:
@@ -44,7 +44,7 @@ def register():
     else:
         return render_template('register.html')
 
-#registration confirm
+#Registration confirmation
 @app.route('/confirmregister', methods=['POST','GET'])
 def confirmregister():
     if(request.method == 'POST'):
@@ -73,6 +73,7 @@ def confirmregister():
         else:
             return redirect(url_for('login'))
 
+#Login confirmation
 @app.route('/loginconfirm', methods=['POST','GET'])
 def loginconfirm():
     if(request.method == 'POST'):
@@ -100,6 +101,7 @@ def loginconfirm():
         else:
             return redirect(url_for('login'))
 
+#Upload images/Add Feed
 @app.route('/upload', methods=['POST','GET'])
 def upload():
     if(request.method == 'POST'):
@@ -116,6 +118,7 @@ def upload():
         else:
             return redirect(url_for('login'))
 
+#Logout
 @app.route('/logout')
 def logout():
     if "uname" in session:
