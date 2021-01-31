@@ -56,7 +56,7 @@ def confirmregister():
         lastname = request.form['lastname']
         mobile = request.form['mobile']
         #Make a connection
-        myconnection = sqlite3.connect('assets/static/db/user.db')
+        myconnection = sqlite3.connect('static/assets/db/user.db')
         #Make a cursor which will perform certain actions
         mycursor = myconnection.cursor()
         #Execute Given action
@@ -79,7 +79,7 @@ def loginconfirm():
     if(request.method == 'POST'):
         username=request.form['username']
         password=request.form['password']
-        myconnection = sqlite3.connect('assets/static/db/user.db')
+        myconnection = sqlite3.connect('static/assets/db/user.db')
         #Make a cursor which will perform certain actions
         mycursor = myconnection.cursor()
         #Execute Given action
