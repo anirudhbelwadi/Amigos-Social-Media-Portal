@@ -1,2 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&display=swap');
 /* Fixes dropdown menus     placed on the right side */
 .ml-auto .dropdown-menu {left: auto !important;right: 0px;}
+.signInText{font-family: 'Raleway', sans-serif;}
+.signInTextItalics{font-family: 'Raleway', sans-serif;font-style: italic;}
+.signInTextLink{font-family: 'Raleway', sans-serif;text-decoration: none;}
