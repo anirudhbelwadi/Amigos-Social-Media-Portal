@@ -9,8 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
-    <nav class="px-3 navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: rgb(25, 25, 25) !important;">
-        <a class="navbar-brand" href="/"><img src="../static/assets/img/logo/amigoslogorect.jpg" height="50px" alt=""></a>
+    <nav class="px-3 navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #362f7c !important;">
+        <a class="navbar-brand my-1" href="/"><img src="../static/assets/img/logo/amigoslogotransparent.png" height="20px" alt="amigoslogo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -18,10 +18,10 @@
         <div class="collapse navbar-collapse justify-content-end text-center" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link text-white" href="/feed">Feed</a>
+                    <a class="nav-link text-white navLinkText" href="/feed">Feed</a>
                 </li>
                 <li class="nav-item dropdown ml-auto">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle text-white navLinkText" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -32,10 +32,10 @@
                         {{ uname }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/profile">Profile</a>
-                        <a class="dropdown-item" href="/settings">Settings</a>
+                        <a class="dropdown-item navLinkText" href="/profile">Profile</a>
+                        <a class="dropdown-item navLinkText" href="/settings">Settings</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="/logout">Logout</a>
+                        <a class="dropdown-item text-danger navLinkText" href="/logout">Logout</a>
                     </div>
                 </li>
             </ul>
