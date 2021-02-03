@@ -44,6 +44,15 @@ def register():
     else:
         return render_template('register.html')
 
+#Profile
+@app.route('/profile')
+def profile():
+    if "uname" in session:
+        uname=session["uname"]
+        return render_template('profile.html',uname=uname)
+    else:
+        return redirect(url_for('login'))
+
 #Registration confirmation
 @app.route('/confirmregister', methods=['POST','GET'])
 def confirmregister():
