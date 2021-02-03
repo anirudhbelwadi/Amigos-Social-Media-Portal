@@ -53,6 +53,16 @@ def profile():
     else:
         return redirect(url_for('login'))
 
+#Settings
+@app.route('/settings')
+def settings():
+    if "uname" in session:
+        uname=session["uname"]
+        return render_template('settings.html',uname=uname)
+    else:
+        return redirect(url_for('login'))
+
+
 #Registration confirmation
 @app.route('/confirmregister', methods=['POST','GET'])
 def confirmregister():
