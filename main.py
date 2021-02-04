@@ -81,6 +81,8 @@ def confirmregister():
         #Execute Given action
         mycursor.execute("INSERT INTO users VALUES (:userName,:emailID,:password,:firstName,:lastName,:mobileNo)",
         {'userName':username,'emailID':email,'password':password,'firstName':firstname,'lastName':lastname,'mobileNo':mobile})
+        mycursor.execute("INSERT INTO profile VALUES (:userName,:status,:profileimage)",
+        {'userName':username,'status':'','profileimage':''})
         #Take ackkonwledgement
         myconnection.commit()
         #Close Connection
