@@ -85,7 +85,7 @@ def confirmregister():
         myconnection.commit()
         #Close Connection
         myconnection.close()
-        return "1"
+        return redirect(url_for('login'))
     else:
         if "uname" in session:
             return redirect(url_for('home'))
