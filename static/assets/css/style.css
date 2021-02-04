@@ -5,3 +5,5 @@
 .signInTextItalics{font-family: 'Raleway', sans-serif;font-style: italic;}
 .signInTextLink{font-family: 'Raleway', sans-serif;text-decoration: none;}
 .navLinkText{font-family: 'Raleway', sans-serif;font-weight: 500 !important;letter-spacing: 1px;}
+.signInButton{background-color: #2011c4 !important; border-color: #2011c4 !important;}
+.signInButton:hover{background-color: #160c8d !important; border-color: #160c8d !important;}

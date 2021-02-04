@@ -6,41 +6,72 @@
     <title>Amigos - Register</title>
     <link rel="shortcut icon" href="../static/assets/img/logo/amigoslogo_a.jpg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/assets/css/style.css">
 </head>
-<body>
-    <form class="container" id="registerForm" action="/confirmregister" method="POST">
-        <h1 class="text-center">Registration</h1>
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" name="username" placeholder="Enter first name">
-        </div>
-        <div class="form-group">
-          <label for="firstname">First Name</label>
-          <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter first name">
-        </div>
-        <div class="form-group">
-          <label for="lastname">Last Name</label>
-          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter last name">
-        </div>
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-          <label for="mobile">Mobile No</label>
-          <input type="tel" class="form-control" id=mobile" name="mobile" placeholder="Enter Mobile Number">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-        </div>
-        <div class="form-group">
-          <label for="password1">Confirm Password</label>
-          <input type="password" class="form-control" id="password1" name="password1" placeholder="Retype Password">
-        </div>
-        <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+<body style="background: #0f0c29;background: -webkit-linear-gradient(to right, #181342, #362f7c, #181342);background: linear-gradient(to right, #181342, #362f7c, #181342);">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="shadow mt-3 pt-4 pb-5 col-lg-5 col-md-6 col-sm-7 col-xs-8 text-white" style="background-color: rgb(25, 25, 25) !important; border-radius: 8px;">
+        <form action="/loginconfirm" autocomplete="off" id="registerForm" action="/confirmregister" class="container" method="POST">
+          <center>
+            <img src="../static/assets/img/logo/amigoslogorect.jpg" class="w-50 mb-1" alt="">
+            <div class="h3 signInText mt-2">Create your Amigos Account</div>
+          </center>
+          <div class="row mt-3">
+            <div class="col-6">
+              <input type="text" required class="form-control signInText mb-3" name="firstname" id="firstname" placeholder="Fisrt Name*">
+            </div>
+            <div class="col-6">
+              <input type="text" required class="form-control signInText mb-3" id="lastname" name="lastname" placeholder="Last Name*">
+            </div>
+          </div>
+          <div class="form-group">
+            <input required type="text" class="form-control signInText mb-3" id="username" name="username" placeholder="Username*">
+          </div>
+          <div class="form-group">
+            <input type="tel" required class="form-control signInText mb-3" id="mobile" name="mobile" placeholder="Mobile Number*">
+          </div>
+          <div class="form-group">
+            <input required type="email" class="form-control signInText mb-3" id="email" name="email" placeholder="Email*">
+          </div>
+          <div class="row mt-1">
+            <div class="col-6">
+              <div class="form-group">
+                <input required type="password" class="form-control signInText mb-3" id="password" name="password" placeholder="Password*">
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <input required type="password" class="form-control signInText mb-3" id="password1" name="password1" placeholder="Confirm*">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-6 col-xs-12 d-flex">
+              <button type="submit" class="btn btn-primary signInText signInButton">Sign Up</button>
+            </div>
+            <div class="col-sm-6 col-xs-12 d-flex justify-content-sm-end justify-content-xs-start">
+              <a href="/login" class="px-2 mt-2 text-white signInTextLink">Already registerd?</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <div class="col-lg-5 col-md-6 col-sm-7 col-xs-8 text-white">
+        <div class="row">
+          <div class="col-sm-6 col-xs-12 d-flex">
+          </div>
+          <div class="col-sm-6 col-xs-12 d-flex justify-content-sm-end justify-content-xs-start">
+            <a href="" class="px-2 text-white signInTextLink">Help</a>
+            <a href="" class="px-2 text-white signInTextLink">Privacy</a>
+            <a href="" class="px-2 text-white signInTextLink">Terms</a>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>
